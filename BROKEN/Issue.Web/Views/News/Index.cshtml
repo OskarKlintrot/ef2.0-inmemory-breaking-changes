@@ -1,0 +1,21 @@
+@model IPagedList<NewsViewModel>
+@{
+    Func<int, string> generatePageUrl = (page) => $"{ViewBag.Url}?page={page}";
+}
+
+@{
+    ViewData["Title"] = "News";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    @foreach (var news in Model)
+    {
+        @Html.Partial("_News", news, new ViewDataDictionary(this.ViewData) { { "Summary", true } })
+    }
+    @if (Model.PageCount > 1)
+    {
+        @Html.Partial("_Pagination", Model, new ViewDataDictionary(this.ViewData) { { "GeneratePageUrl", generatePageUrl } })
+    }
+</div>

@@ -1,0 +1,25 @@
+@model NewsViewModel
+@{
+    var hideButtons = ViewBag.HideButtons ?? false;
+    var summary = ViewBag.Summary ?? false;
+}
+
+<dl>
+@if (Model.HeaderImage != null)
+{
+    <dt>Image Filename:</dt>
+    <dd>@Model.HeaderImage.FileName</dd>
+}
+
+<dt>Display Name:</dt>
+<dd>@Model.User.DisplayName</dd>
+
+<dt>Text:</dt>
+<dd>@Model.Text</dd>
+
+<dt>Raw Text:</dt>
+<dd>@Html.Raw(Model.Text)</dd>
+
+<dt>Tags:</dt>
+<dd>@Model.Tags.Replace(",", ", ")</dd>
+</dl>

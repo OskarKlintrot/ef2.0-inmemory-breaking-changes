@@ -1,0 +1,21 @@
+@model IPagedList
+@{
+    Func<int, string> generatePageUrl = ViewBag.GeneratePageUrl;
+
+    var RenderOptions = new PagedListRenderOptions
+    {
+        DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+        DisplayLinkToLastPage = PagedListDisplayMode.Never,
+
+        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+
+        DisplayEllipsesWhenNotShowingAllPageNumbers = true,
+
+        MaximumPageNumbersToDisplay = 3,
+    };
+}
+
+<div class="row center">
+    @Html.PagedListPager(Model, generatePageUrl, RenderOptions)
+</div>

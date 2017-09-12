@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestHelpers\**" />
+    <EmbeddedResource Remove="TestHelpers\**" />
+    <None Remove="TestHelpers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.7.99" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Issue.Web.Domain\Issue.Web.Domain.csproj" />
+    <ProjectReference Include="..\Issue.Web\Issue.Web.csproj" />
+  </ItemGroup>
+
+</Project>

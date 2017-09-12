@@ -1,0 +1,12 @@
+﻿@model NewsViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["MobileTitle"] = "";
+    Layout = "_Layout";
+}
+
+@Html.Partial("_News", Model, new ViewDataDictionary(this.ViewData) { { "Summary", false } })
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
